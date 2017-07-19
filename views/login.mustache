@@ -1,0 +1,29 @@
+<div class="sign-up-or-in">
+  <div class="registration">
+    <h4>New User? Register for Flipcard:</h4>
+    <form class="registration-form" action="/register" method="post">
+      <input type="text" name="username" value="" placeholder="Create a username"><br>
+      <input type="password" name="password" value="" placeholder="Create a password"><br>
+      <input type="password" name="passwordConf" value="" placeholder="Confirm password"><br>
+      <input type="text" name="location" value="" placeholder="Enter your location. Ex: Houston, TX"><br>
+      <button type="submit" name="submit">Sign Up</button>
+    </form>
+  </div>
+
+  <div class="log-in">
+    <h4>Already a user? Log In:</h4>
+    <form class="log-in-form" action="/loginUser" method="post">
+      <input type="text" name="username" value="" placeholder="Username"><br>
+      <input type="password" name="password" value="" placeholder="Password"><br>
+      <button type="submit" name="login">Login</button>
+    </form>
+  </div>
+</div>
+
+<div class="site-info">
+  <h1>What is Flipcard?</h1>
+  <p>Flipcard is a site for memorization improvement. Create digital flashcards to test your memory.</p>
+  {{#error}}
+    {{errors}}
+  {{/error}}
+</div>

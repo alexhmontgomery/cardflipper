@@ -2,22 +2,22 @@ const express = require('express')
 const mustache = require('mustache-express')
 const app = express()
 const session = require('express-session')
-// const passport = require('passport')
-// const BasicStrategy = require('passport-http').BasicStrategy
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
-// const Account = require('./models/schema').Account
-// const Deck = require('./models/schema').Deck
 const authenticate = require('./models/authentification').authenticate
+const loginRoute = require('./routes/login')
+const indexRoute = require('./routes/index')
+const addCardsRoute = require('./routes/addcards')
+const quizRoute = require('./routes/quiz')
 
 app.engine('mustache', mustache())
 app.set('view engine', 'mustache')
 app.set('layout', 'layout')
 app.use(express.static('public'))
-app.use(bodyParser.json()) // change if you decide not to use json format
+// app.use(bodyParser.json()) // change if you decide not to use json format
 app.use(bodyParser.urlencoded({extended: false}))
 mongoose.Promise = require('bluebird')
-mongoose.connect = ('mongodb://localhost:27017/flipcard')
+mongoose.connect('mongodb://localhost:27017/flipcard')
 
 app.use(session({
   secret: 'b5990cdd42a9f97c85b8',
@@ -26,9 +26,11 @@ app.use(session({
   saveUninitialized: false
 }))
 
-// app.use(loginRoutes)
+app.use(loginRoute)
 app.use(authenticate)
-// app.use(AllOtherRoutes)
+app.use(indexRoute)
+app.use(addCardsRoute)
+app.use(quizRoute)
 
 app.listen(3000, function () {
   console.log('Server is ON! Go to Localhost Port:3000')

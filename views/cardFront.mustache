@@ -1,0 +1,22 @@
+<div class="card-front-page">
+
+    <div class="deck-name-score">
+      {{#deck}}
+      <h2>DECK: {{deckName}}</h2>
+      {{/deck}}
+      <h2>SCORE: {{score}}</h2>
+    </div>
+
+    <div class="card-box">
+      <h4>Front</h4>
+
+      <div class="card-box-question">
+        <h2>{{question}}</h2>
+      </div>
+
+      <form class="flip-the-card" action="/flipTheCard" method="post">
+        <button type="submit" name="flipButton">Flip the card!</button>
+      </form>
+    </div>
+
+</div>
