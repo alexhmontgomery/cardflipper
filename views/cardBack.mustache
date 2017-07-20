@@ -1,9 +1,7 @@
 <div class="card-back-page">
 
     <div class="deck-name-score">
-      {{#deck}}
-      <h2>DECK: {{deckName}}</h2>
-      {{/deck}}
+      <h2>DECK: {{deck.deckName}}</h2>
       <h2>SCORE: {{score}}</h2>
     </div>
 
@@ -19,6 +17,10 @@
         <input type="submit" name="result" value="Right">
         <input type="submit" name="result" value="Wrong">
       </form>
+    </div>
+
+    <div class="card-number">
+      <h2>Card: {{cardNum}} of {{deckSize}}</h2>
     </div>
 
 </div>

@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <title>Flipcard</title>
     <link rel="stylesheet" href="/css/master.css">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Arvo|Droid+Sans|Play|Rasa" rel="stylesheet">
   </head>
 
   <body>
     <header>
-      <a href="/">Flipcard</a>
+      <a href="/" class="site-name">FLIPCARD</a>
       {{#user}}
-      <a href="/logout">Logout {{username}}</a>
+      <a href="/logout">Logout: {{username}}</a>
       {{/user}}
     </header>
     <main>
@@ -18,7 +19,7 @@
       {{{yield}}}
     </main>
     <footer>
-      Designed by Alexhmonty
+      <h5>Designed by Alexhmonty &copy; 2017</h5>
     </footer>
   </body>
 </html>

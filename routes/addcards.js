@@ -4,18 +4,17 @@ const router = express.Router()
 const Deck = require('../models/schema').Deck
 
 router.get('/deck/:id', function (req, res) {
-  console.log('enter get')
   req.session.deckId = req.params.id
   let user = req.user
   Deck.findOne({
     _id: req.params.id
   })
   .then(function (deck) {
-    let cardsLength = deck.cards.length
+    req.session.deckSize = deck.cards.length
     res.render('deck', {
       user: user,
       deck: deck,
-      cardsLength: cardsLength
+      deckSize: req.session.deckSize
     })
   })
   .catch(function (error) {

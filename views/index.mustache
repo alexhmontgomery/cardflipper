@@ -1,8 +1,7 @@
 <div class="homepage">
-  <h2>This is the homepage!!</h2>
 
   <div class="current-decks">
-    <h2>Your Decks Available:</h2>
+    <h2>Hello {{user.username}}, select one of your current decks:</h2>
 
     <div class="decks-display">
       <!-- display current decks here -->
@@ -11,9 +10,7 @@
         <a href="/deck/{{_id}}"><h2>{{deckName}}</h2></a>
       </div>
       {{/decks}}
-      <div class="deck-each">
-        <h2>deck 2</h2>
-      </div>
+
     </div>
   </div>
 

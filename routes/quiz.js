@@ -16,7 +16,9 @@ router.get('/deck/:id/card/:cardNum/:side', function (req, res) {
         user: req.user,
         deck: deck,
         question: question,
-        score: req.session.score
+        score: req.session.score,
+        cardNum: req.session.card,
+        deckSize: req.session.deckSize
       })
     })
   } else { // if side === 'back'
@@ -31,10 +33,29 @@ router.get('/deck/:id/card/:cardNum/:side', function (req, res) {
         deck: deck,
         question: question,
         answer: answer,
-        score: req.session.score
+        score: req.session.score,
+        cardNum: req.session.card,
+        deckSize: req.session.deckSize
       })
     })
   }
+})
+
+router.get('/deck/:id/complete', function (req, res) {
+  Deck.findOne({
+    _id: req.session.deckId
+  })
+  .then(function (deck) {
+    res.render('complete', {
+      user: req.user,
+      deck: deck,
+      score: req.session.score,
+      deckSize: req.session.deckSize
+    })
+  })
+  .catch(function (error) {
+    console.log('error: ' + error)
+  })
 })
 
 router.post('/quiz', function (req, res) {
@@ -47,14 +68,19 @@ router.post('/flipTheCard', function (req, res) {
 })
 
 router.post('/nextCard', function (req, res) {
-  console.log('card session type: ' + typeof (req.session.card))
   let newCard = parseInt(req.session.card) + 1
   req.session.card = newCard
   console.log('new card =' + req.session.card)
   if (req.body.result === 'Right') {
     req.session.score = req.session.score + 1
   }
-  res.redirect(`/deck/${req.session.deckId}/card/${req.session.card}/front`)
+  // determine if at the end of the deck
+  if (req.session.card > req.session.deckSize) {
+    console.log('end of deck')
+    res.redirect(`/deck/${req.session.deckId}/complete`)
+  } else {
+    res.redirect(`/deck/${req.session.deckId}/card/${req.session.card}/front`)
+  }
 })
 
 module.exports = router
