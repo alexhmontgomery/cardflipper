@@ -62,8 +62,15 @@ main {
 }
 
 /*--INDEX--*/
+.homepage {
+  display: flex;
+  flex-direction: column;
+}
+
 .current-decks {
   padding: 3% 2%;
+  text-align: center;
+  width: 100vw;
 }
 
 .decks-display {
@@ -74,16 +81,91 @@ main {
 }
 
 .deck-each {
-  border: 1px solid blue;
+  border: 1px solid black;
   flex-basis: 20%;
+  color: black;
   margin: 1%;
   text-align: center;
+  background-color: rgb(245, 215, 110);
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .deck-each a {
   padding: 5% 2%;
-
+  color: black;
 }
+
+.new-deck {
+  padding: 5%;
+}
+
+/*---DECK INDIVIDUAL---*/
+.deck-page {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  padding: 2%;
+  width: 100vw;
+  text-align: left;
+  font-size: 1.4rem;
+}
+
+.add-card-start-quiz {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.new-card {
+  padding: 1% 10% 1% 0%;
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.start-quiz {
+  flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.current-cards {
+  padding: 3% 2%;
+  text-align: center;
+  width: 100vw;
+}
+
+.card-display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.card-each {
+  /*border: 1px solid black;*/
+  border-radius: 2%;
+  box-shadow: 0px 5px 10px #888888;
+  flex-basis: 15%;
+  color: black;
+  margin: 1%;
+  text-align: center;
+  background-color: rgb(236,100,75);
+  height: 15vh;
+  padding: 0.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 
 /*
 font-family: 'Droid Sans', sans-serif;

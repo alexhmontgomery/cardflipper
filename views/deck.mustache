@@ -1,27 +1,32 @@
 <div class="deck-page">
   {{#deck}}
     <h1>DECK: {{deckName}}</h1>
+    <div class="add-card-start-quiz">
+      <div class="new-card">
+        <h3>Add a New Card</h3>
+        <form class="new-card-form" action="/addCard" method="post">
+          <label for="question">Front of Card:</label>
+          <input type="text" name="question" value="" placeholder="card question"><br>
+          <label for="answer">Back of Card:</label>
+          <input type="text" name="answer" value="" placeholder="card answer"><br>
+          <button type="submit" name="button">Add Card</button>
+        </form>
+      </div>
 
-    <div class="new-card">
-      <h3>Add a New Card</h3>
-      <form class="new-card-form" action="/addCard" method="post">
-        <label for="question">Question:</label><br>
-        <input type="text" name="question" value="" placeholder="card question"><br>
-        <label for="answer">Answer:</label><br>
-        <input type="text" name="answer" value="" placeholder="card answer"><br>
-        <button type="submit" name="button">Add Card</button>
+      <form class="start-quiz" action="/quiz" method="post">
+        <button type="submit" name="button">Start Quiz</button>
       </form>
     </div>
 
-    <form class="start-quiz" action="/quiz" method="post">
-      <button type="submit" name="button">Start Quiz</button>
-    </form>
-
-    <h2>{{deckSize}} Cards in Deck Currently: </h2>
-    {{#cards}}
-      <div class="card-each">
-        <h5>{{question}}</h5>
-      </div>
-    {{/cards}}
+    <div class="current-cards">
+        <h2>{{deckSize}} Cards in {{deckName}} Currently: </h2>
+        <div class="card-display">
+        {{#cards}}
+          <div class="card-each">
+            <h5>{{question}}</h5>
+          </div>
+        {{/cards}}
+        </div>
+    </div>
   {{/deck}}
 </div>
