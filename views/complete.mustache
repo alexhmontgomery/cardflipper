@@ -1,9 +1,16 @@
 <div class="complete-page">
-  <h2>{{deck.deckName}} Deck is Complete!</h2>
+  <h2>{{deck.deckName}} Deck Completed</h2>
   <h4>Final Score: {{score}} of {{deckSize}}</h4>
 
   <div class="play-again">
     <h3>Great Job!</h3>
-    Play Again!
+
+    <form class="play-again-form" action="/restartDeck" method="post">
+      <button class="play-again-button" type="submit" name="button">Attempt {{deck.deckName}} deck again</button>
+    </form>
+
+    <form class="play-again-form" action="/chooseAnotherDeck" method="post">
+      <button class="play-again-button" type="submit" name="button">Choose Another Deck</button>
+    </form>
   </div>
 </div>

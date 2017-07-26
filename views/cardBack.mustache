@@ -1,26 +1,39 @@
 <div class="card-back-page">
 
     <div class="deck-name-score">
-      <h2>DECK: {{deck.deckName}}</h2>
-      <h2>SCORE: {{score}}</h2>
+      <div class="deck-name">
+        <h2>{{deck.deckName}}</h2>
+      </div>
+
+      <div class="scoreboard">
+        <h3>Score:</h3>
+        <h3>{{score}}</h3>
+      </div>
     </div>
 
     <div class="card-box">
-      <h4>Front</h4>
+      <h4>Back</h4>
 
-      <div class="card-box-question">
-        <h2>{{question}}</h2>
-        <h2><strong>{{answer}}</strong></h2>
+      <div class="card-box-info">
+        <div class="card-box-question">
+          <h2>{{question}}</h2>
+        </div>
+        <div class="card-box-answer">
+          <h2>{{answer}}</h2>
+        </div>
       </div>
 
       <form class="next-card" action="/nextCard" method="post">
-        <input type="submit" name="result" value="Right">
-        <input type="submit" name="result" value="Wrong">
+        <button id="right-button" type="submit" name="result" value="Right">Right</button>
+        <button id="wrong-button" type="submit" name="result" value="Wrong">Wrong</button>
       </form>
     </div>
 
     <div class="card-number">
-      <h2>Card: {{cardNum}} of {{deckSize}}</h2>
+      <h4>Card: {{cardNum}} of {{deckSize}}</h4>
+      <form class="" action="/editCard" method="post">
+        <button type="submit" name="button">Edit This Card</button>
+      </form>
     </div>
 
 </div>

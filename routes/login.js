@@ -5,7 +5,9 @@ const Account = require('../models/schema').Account
 
 // allow a user to login
 router.get('/login', function (req, res) {
-  res.render('login')
+  res.render('login', {
+    title: 'Login'
+  })
 })
 
 router.post('/loginUser', function (req, res) {
@@ -57,4 +59,10 @@ router.post('/register', function (req, res) {
 })
 
 // allow a user to logout
+router.get('/logout', function (req, res) {
+  req.session.destroy(function () {
+    res.redirect('/')
+  })
+})
+
 module.exports = router

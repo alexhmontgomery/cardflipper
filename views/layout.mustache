@@ -2,17 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Flipcard</title>
+    <title>Cardflipper | {{title}}</title>
     <link rel="stylesheet" href="/css/master.css">
+    <link rel="icon" type="image/png" href="/images/cardflipper-icon.png">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Arvo|Droid+Sans|Play|Rasa" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
     <header>
-      <a href="/" class="site-name">FLIPCARD</a>
-      {{#user}}
-      <a href="/logout">Logout: {{username}}</a>
-      {{/user}}
+      <div class="head-title">
+          <img class="head-logo" src="/images/cardflipper-icon.png" alt="flipper logo">
+          <h2>CARDFLIPPER</h2>
+      </div>
+      <div class="head-links">
+        {{#user}}
+        <a href="/"><h5>Deckpage</h5></a>
+        <a href="/logout"><h5>Logout: {{username}}</h5></a>
+        {{/user}}
+        {{^user}}{{/user}}
+      </div>
     </header>
     <main>
       <!-- renders the template specified by the server in this layout -->

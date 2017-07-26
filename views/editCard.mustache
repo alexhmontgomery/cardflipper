@@ -1,0 +1,34 @@
+<div class="card-back-page">
+
+    <div class="deck-name-score">
+      <h2>DECK: {{deck.deckName}}</h2>
+    </div>
+
+    <div class="card-box">
+      <h4>Edit Card</h4>
+
+      <div class="card-box-info">
+        <form class="" action="/editResults" method="post">
+          <div class="card-box-question">
+            <label for="question">Card Question: </label>
+            <input type="text" name="question" value="{{question}}">
+          </div>
+          <div class="card-box-answer">
+            <label for="answer">Card Answer: </label>
+            <input type="text" name="answer" value="{{answer}}">
+          </div>
+          <button type="submit" name="button">Complete Edit</button>
+        </form>
+
+        <form class="card-delete" action="/deleteCard" method="post">
+          <button type="submit" name="button">Delete Card</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="card-number">
+      <h2>Card: {{cardNum}} of {{deckSize}}</h2>
+    </div>
+
+</div>

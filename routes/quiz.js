@@ -14,6 +14,7 @@ router.get('/deck/:id/card/:cardNum/:side', function (req, res) {
       let question = deck.cards[req.session.card - 1].question
       res.render('cardFront', {
         user: req.user,
+        title: 'Card Front',
         deck: deck,
         question: question,
         score: req.session.score,
@@ -30,6 +31,7 @@ router.get('/deck/:id/card/:cardNum/:side', function (req, res) {
       let answer = deck.cards[req.session.card - 1].answer
       res.render('cardBack', {
         user: req.user,
+        title: 'Card Back',
         deck: deck,
         question: question,
         answer: answer,
@@ -39,23 +41,6 @@ router.get('/deck/:id/card/:cardNum/:side', function (req, res) {
       })
     })
   }
-})
-
-router.get('/deck/:id/complete', function (req, res) {
-  Deck.findOne({
-    _id: req.session.deckId
-  })
-  .then(function (deck) {
-    res.render('complete', {
-      user: req.user,
-      deck: deck,
-      score: req.session.score,
-      deckSize: req.session.deckSize
-    })
-  })
-  .catch(function (error) {
-    console.log('error: ' + error)
-  })
 })
 
 router.post('/quiz', function (req, res) {

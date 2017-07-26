@@ -13,7 +13,8 @@ router.get('/', function (req, res) {
     console.log('decks: ' + decks)
     res.render('index', {
       decks: decks,
-      user: user
+      user: user,
+      title: 'Deckpage'
     })
   })
   .catch(function (errors) {

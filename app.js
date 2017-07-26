@@ -9,6 +9,8 @@ const loginRoute = require('./routes/login')
 const indexRoute = require('./routes/index')
 const addCardsRoute = require('./routes/addcards')
 const quizRoute = require('./routes/quiz')
+const completeRoute = require('./routes/complete')
+const cardedit = require('./routes/cardedit')
 
 app.engine('mustache', mustache())
 app.set('view engine', 'mustache')
@@ -31,6 +33,8 @@ app.use(authenticate)
 app.use(indexRoute)
 app.use(addCardsRoute)
 app.use(quizRoute)
+app.use(completeRoute)
+app.use(cardedit)
 
 app.listen(3000, function () {
   console.log('Server is ON! Go to Localhost Port:3000')
