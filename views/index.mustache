@@ -1,13 +1,18 @@
 <div class="homepage">
 
   <div class="current-decks">
-    <h2>Hello {{user.username}}, select one of your current decks:</h2>
+    <h2>Hello {{user.username}}, select one of your decks:</h2>
 
     <div class="decks-display">
-      <!-- display current decks here -->
       {{#decks}}
       <div class="deck-each">
         <a href="/deck/{{_id}}"><h2>{{deckName}}</h2></a>
+      </div>
+      {{/decks}}
+
+      {{^decks}}
+      <div class="deck-each">
+        <h2>Add a deck to get started!</h2>
       </div>
       {{/decks}}
 
@@ -16,10 +21,8 @@
 
   <div class="new-deck">
     <form class="" action="/newDeck" method="post">
-      <label for="deckName">Build a new deck: </label>
+      <label for="deckName"><h4>Build a new deck: </h4></label>
       <input type="text" name="deckName" value="" placeholder="enter deck name">
-      <!-- <label for="deckImage">Image for deck:</label>
-      <input type="file" name="deckImage" value="" accept="image/*"> -->
       <button type="submit" name="submitButton">Create</button>
     </form>
   </div>

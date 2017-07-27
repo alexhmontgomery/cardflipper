@@ -9,6 +9,7 @@ router.get('/deck/:id/complete', function (req, res) {
   })
   .then(function (deck) {
     res.render('complete', {
+      title: 'Deck Complete',
       user: req.user,
       deck: deck,
       score: req.session.score,

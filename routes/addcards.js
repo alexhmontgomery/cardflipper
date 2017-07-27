@@ -12,6 +12,7 @@ router.get('/deck/:id', function (req, res) {
   .then(function (deck) {
     req.session.deckSize = deck.cards.length
     res.render('deck', {
+      title: 'Add Cards',
       user: user,
       deck: deck,
       deckSize: req.session.deckSize
@@ -35,6 +36,18 @@ router.post('/addCard', function (req, res) {
     .then(function (deck) {
       res.redirect(`/deck/${req.session.deckId}`)
     })
+  })
+  .catch(function (error) {
+    console.log('error: ' + error)
+  })
+})
+
+router.post('/deleteDeck', function (req, res) {
+  Deck.deleteOne({
+    _id: req.session.deckId
+  })
+  .then(function () {
+    res.redirect('/')
   })
   .catch(function (error) {
     console.log('error: ' + error)

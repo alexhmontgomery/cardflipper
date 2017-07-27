@@ -22,7 +22,7 @@
     </div>
 
     <div class="current-cards">
-        <h2>{{deckSize}} Cards in {{deckName}} currently: </h2>
+        <h3>{{deckSize}} cards in {{deckName}} deck: </h3>
         <div class="card-display">
         {{#cards}}
           <div class="card-each">
@@ -31,5 +31,9 @@
         {{/cards}}
         </div>
     </div>
+
+    <form class="delete-deck" action="/deleteDeck" method="post">
+      <button type="submit" name="button"> Delete Deck! </button>
+    </form>
   {{/deck}}
 </div>
