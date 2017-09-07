@@ -19,7 +19,8 @@ app.use(express.static('public'))
 // app.use(bodyParser.json()) // change if you decide not to use json format
 app.use(bodyParser.urlencoded({extended: false}))
 mongoose.Promise = require('bluebird')
-mongoose.connect('mongodb://localhost:27017/flipcard')
+const mongoURL = process.env.MONGODB_URI || 'mongodb://0.0.0.0:27017/flipcard'
+mongoose.connect(mongoURL)
 
 app.use(session({
   secret: 'b5990cdd42a9f97c85b8',
@@ -28,6 +29,12 @@ app.use(session({
   saveUninitialized: false
 }))
 
+const port = process.env.PORT || 3000
+
+app.listen(port, function () {
+  console.log('Server is ON!')
+})
+
 app.use(loginRoute)
 app.use(authenticate)
 app.use(indexRoute)
@@ -35,10 +42,6 @@ app.use(addCardsRoute)
 app.use(quizRoute)
 app.use(completeRoute)
 app.use(cardedit)
-
-app.listen(3000, function () {
-  console.log('Server is ON! Go to Localhost Port:3000')
-})
 
 // passport.use(new BasicStrategy(
 //   function (username, password, done) {
