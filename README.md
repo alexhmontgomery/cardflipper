@@ -1,6 +1,6 @@
-# Flipcards
+# Cardflipper
 
-Flipcards is a site that allows users to create, store, and view decks of digital flashcards. The user can test their memory by flipping through a deck of flashcards that they have created.
+Cardflipper is a site that allows users to create, store, and view decks of digital flashcards. The user can test their memory by flipping through a deck of flashcards that they have created.
 I created this project during my time at The Iron Yard coding bootcamp.
 
 ## Screenshots
@@ -19,8 +19,8 @@ I created this project during my time at The Iron Yard coding bootcamp.
 
 ### Installation
 ```
-git clone https://github.com/alexhmontgomery/flipcards
-cd flipcards
+git clone https://github.com/alexhmontgomery/cardflipper
+cd cardflipper
 npm install
 npm start
 ```
